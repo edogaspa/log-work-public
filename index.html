@@ -4,266 +4,384 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Relatório Profissional - Eduardo Gasparetto</title>
+<title>Análise de Trabalho - Ecommerce na Prática</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg-page:#F4F7FB;
-  --bg-card:#FFFFFF;
-  --bg-card-inner:#F4F7FB;
-  --text-heading:#313642;
-  --text-body:#5C6167;
-  --text-body-strong:#313642;
-  --text-meta:#979BA1;
-  --accent:#1076DD;
-  --accent-hover:#FFFFFF;
-  --accent-active:#0A5BB5;
-  --link:#1076DD;
-  --link-hover:#313642;
-  --divider:#BDC0C6;
-  --input-border:#BDC0C6;
-  --input-focus:#1076DD;
-  --gray-10:#EFF1F4;
-  --gray-20:#BDC0C6;
-  --gray-60:#5C6167;
-  --green:#00CD4B;
-  --orange:#FF7A27;
-  --pink:#C3355D;
-  --lime:#CDFF07;
-  --sky:#31B3F9;
-  --shadow:0 10px 30px rgba(0,0,0,.05);
-  --radius:16px;
-  --radius-sm:6px;
-  --radius-full:32px;
-  --radius-pill:100px;
-  --ease:cubic-bezier(.19,1,.22,1);
+  --bg-page:#F4F7FB;--bg-card:#FFFFFF;--bg-card-inner:#F4F7FB;
+  --text-heading:#313642;--text-body:#5C6167;--text-body-strong:#313642;
+  --text-meta:#979BA1;--accent:#1076DD;--accent-hover:#0A5BB5;
+  --link:#1076DD;--link-hover:#313642;--divider:#BDC0C6;
+  --gray-10:#EFF1F4;--gray-20:#BDC0C6;--gray-40:#979BA1;
+  --gray-60:#5C6167;--gray-80:#303339;
+  --nature-green:#00CD4B;--dawn-orange:#FF7A27;--sunset-pink:#C3355D;
+  --lime:#CDFF07;--sky:#31B3F9;
+  --shadow-card:0 24px 48px -12px rgba(50,50,93,.1),0 18px 36px -18px rgba(0,0,0,.1),0 -12px 36px -8px rgba(0,0,0,.02);
+  --shadow-soft:0 10px 30px rgba(0,0,0,.05);
+  --radius-card:16px;--radius-input:6px;--radius-pill:100px;
+  --ease-expo:cubic-bezier(.19,1,.22,1);
   --font:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",arial,sans-serif;
 }
-html{font-size:16px;-webkit-font-smoothing:antialiased}
-body{font-family:var(--font);background:var(--bg-page);color:var(--text-body);line-height:1.6}
-.topbar{background:var(--bg-card);height:56px;display:flex;align-items:center;padding:0 24px;gap:16px;box-shadow:var(--shadow);position:sticky;top:0;z-index:1020}
-.topbar__brand{font-weight:600;font-size:14px;color:var(--text-heading);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
-.topbar__brand span{color:var(--accent);font-size:12px;font-weight:400;background:rgba(16,118,221,.08);padding:2px 8px;border-radius:var(--radius-pill)}
-.topbar__nav{display:flex;gap:0;margin-left:auto;overflow-x:auto}
-.topbar__link{font-family:var(--font);font-size:14px;color:var(--text-meta);background:none;border:none;padding:16px 16px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:color .15s}
-.topbar__link:hover{color:var(--text-heading)}
-.wrap{max-width:860px;margin:0 auto;padding:48px 24px 96px}
-section{margin-bottom:64px}
-h1{font-size:clamp(32px,4vw,42px);font-weight:600;color:var(--text-heading);letter-spacing:-.025em;line-height:1.1;margin-bottom:16px}
-h2{font-size:clamp(24px,3vw,30px);font-weight:600;color:var(--text-heading);letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
-h3{font-size:22px;font-weight:600;color:var(--text-heading);letter-spacing:-.01em;line-height:1.3;margin-top:32px;margin-bottom:8px}
-h4{font-size:18px;font-weight:600;color:var(--text-heading);line-height:1.3;margin-bottom:8px}
-p{margin-bottom:16px;font-size:16px;line-height:1.5}
-.lead{font-size:18px;color:var(--text-body);line-height:1.5;margin-bottom:24px}
+html{font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--font);background:var(--bg-page);color:var(--text-body);line-height:1.5;height:100vh;overflow:hidden;display:flex;flex-direction:column}
+.shell{display:flex;flex:1;overflow:hidden}
+.sidebar{width:270px;background:var(--bg-card);overflow-y:auto;flex-shrink:0;padding:0 0 16px;border-right:1px solid var(--gray-10);transition:transform .3s var(--ease-expo)}
+.sidebar__header{padding:22px 20px 16px;border-bottom:1px solid var(--gray-10);margin-bottom:8px}
+.sidebar__title{font-weight:600;font-size:15px;color:var(--text-heading);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.sidebar__title img{width:19px;height:22px;flex-shrink:0}
+.sidebar__sub{font-size:12px;color:var(--text-meta);margin-top:4px}
+.sidebar__sub span{color:var(--accent);background:rgba(16,118,221,.08);padding:1px 8px;border-radius:var(--radius-pill);margin-left:4px}
+.nav__group{padding:0 12px;margin-bottom:2px}
+.nav__toggle{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;font-family:var(--font);font-size:14px;font-weight:600;color:var(--text-heading);background:none;border:none;padding:11px 12px;cursor:pointer;border-radius:var(--radius-input);text-align:left;transition:background .15s ease}
+.nav__toggle:hover{background:var(--gray-10)}
+.nav__toggle.open{color:var(--accent)}
+.nav__caret{font-size:9px;color:var(--text-meta);transition:transform .25s var(--ease-expo);flex-shrink:0}
+.nav__toggle.open .nav__caret{transform:rotate(90deg);color:var(--accent)}
+.nav__sub{overflow:hidden;max-height:0;transition:max-height .3s var(--ease-expo)}
+.nav__sub.open{max-height:640px}
+.nav__sub-inner{padding:2px 0 8px 8px}
+.sidebar__item{font-size:14px;color:var(--text-body);padding:8px 12px;border-radius:var(--radius-input);cursor:pointer;transition:all .15s ease;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sidebar__item:hover{background:var(--gray-10);color:var(--text-heading)}
+.sidebar__item.active{background:rgba(16,118,221,.08);color:var(--accent);font-weight:600}
+.content{flex:1;overflow-y:auto;padding:40px;scroll-behavior:smooth}
+.content__inner{max-width:800px;margin:0 auto}
+.section{display:none;animation:fadeIn .4s var(--ease-expo)}
+.section.visible{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+h1{font-size:clamp(30px,4vw,42px);font-weight:600;color:var(--text-heading);letter-spacing:-.025em;line-height:1.1;margin-bottom:8px}
+h2{font-size:clamp(22px,3vw,30px);font-weight:600;color:var(--text-heading);letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
+h3{font-size:22px;font-weight:600;color:var(--text-heading);letter-spacing:-.01em;line-height:1.3;margin-bottom:12px;margin-top:8px}
+h4{font-size:16px;font-weight:600;color:var(--text-heading);margin-bottom:8px}
+p{margin-bottom:16px;font-size:16px;line-height:1.6}
+.lead{font-size:18px;color:var(--text-body);margin-bottom:24px}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-meta);margin-bottom:8px}
 strong{font-weight:600;color:var(--text-body-strong)}
-em{font-style:normal;font-weight:600;color:var(--text-body-strong)}
-.card{background:var(--bg-card);border-radius:var(--radius);padding:40px 32px;margin-bottom:24px;box-shadow:var(--shadow)}
+em{font-style:normal;color:var(--accent)}
+.card{background:var(--bg-card);border-radius:var(--radius-card);padding:32px;margin-bottom:24px;box-shadow:var(--shadow-soft)}
+.card--inner{background:var(--bg-card-inner);border-radius:var(--radius-card);padding:24px;margin-bottom:16px}
 .card--accent{border-left:3px solid var(--accent);padding-left:29px}
-.card--green{border-left:3px solid var(--green);padding-left:29px}
-.table-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(49,54,66,.1);margin-bottom:24px}
-.table-wrap table{margin-bottom:0}
-table{width:100%;border-collapse:collapse;margin-bottom:24px;font-size:16px}
+.card--warn{border-left:3px solid var(--dawn-orange);padding-left:29px}
+.card--danger{border-left:3px solid var(--sunset-pink);padding-left:29px}
+.card--success{border-left:3px solid var(--nature-green);padding-left:29px}
+.card--tight{padding:20px 24px;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;margin-bottom:24px;font-size:14px}
 thead{background:rgba(49,54,66,.07)}
-th{text-align:left;padding:14px 20px;font-weight:600;color:var(--gray-60)}
-td{padding:14px 20px;border-bottom:1px solid rgba(49,54,66,.06);color:var(--text-heading)}
+th{text-align:left;padding:12px 16px;font-weight:600;color:var(--text-heading);font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+td{padding:12px 16px;border-bottom:1px solid rgba(49,54,66,.06);color:var(--text-body);vertical-align:top}
 tbody tr:nth-child(even){background:rgba(49,54,66,.03)}
-tbody tr:last-child td{border-bottom:none}
 tbody tr:hover{background:rgba(16,118,221,.04)}
-.badge{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:var(--radius-full);white-space:nowrap}
+.badge{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:32px;white-space:nowrap}
 .badge--blue{background:rgba(16,118,221,.1);color:var(--accent)}
 .badge--green{background:rgba(0,205,75,.1);color:#00974a}
 .badge--orange{background:rgba(255,122,39,.1);color:#cc5500}
+.badge--pink{background:rgba(195,53,93,.1);color:var(--sunset-pink)}
 .badge--gray{background:var(--gray-10);color:var(--gray-60)}
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;text-align:center}
+ul,ol{margin-bottom:16px;padding-left:24px}
+li{margin-bottom:8px;font-size:15px;line-height:1.5}
+li::marker{color:var(--accent)}
+blockquote{background:var(--bg-card-inner);border-left:3px solid var(--accent);padding:16px 24px;margin:0 0 24px;border-radius:0 var(--radius-input) var(--radius-input) 0;font-size:15px;color:var(--text-body)}
+hr{border:none;height:1px;background:var(--gray-10);margin:32px 0}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--text-heading);text-decoration:underline}
+code{font-family:monospace;font-size:13px;background:var(--gray-10);padding:1px 6px;border-radius:4px;color:var(--text-body-strong)}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;text-align:center}
+.kpi{padding:8px 0}
 .kpi__value{font-size:30px;font-weight:600;color:var(--accent)}
 .kpi__label{font-size:12px;color:var(--text-meta)}
-.meter{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-.meter__label{font-size:14px;color:var(--text-body);width:170px;flex-shrink:0}
-.meter__bar{flex:1;height:8px;background:var(--gray-10);border-radius:var(--radius-pill);overflow:hidden}
-.meter__fill{height:100%;border-radius:var(--radius-pill)}
-.meter__value{font-size:14px;font-weight:600;color:var(--text-heading);width:40px;text-align:right;flex-shrink:0}
-ul,ol{margin-bottom:16px;padding-left:24px}
-li{margin-bottom:8px;font-size:16px}
-li::marker{color:var(--accent)}
-blockquote{background:var(--bg-card-inner);border-left:3px solid var(--accent);padding:16px 24px;margin:0 0 24px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:16px;color:var(--text-body)}
-hr{border:none;height:1px;background:var(--gray-10);margin:32px 0}
-a{color:var(--link);text-decoration:none}
-a:hover{color:var(--link-hover);text-decoration:underline}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
-@media(max-width:768px){.grid-2{grid-template-columns:1fr}.topbar__nav{display:none}h3{font-size:20px}}
+.sitelink{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:var(--accent);background:rgba(16,118,221,.08);padding:9px 18px;border-radius:var(--radius-pill);margin-bottom:20px;transition:background .15s ease}
+.sitelink:hover{background:rgba(16,118,221,.16);text-decoration:none;color:var(--accent)}
+.jumptable tbody tr{cursor:pointer}
+.jumptable td:first-child{white-space:nowrap}
+.jumptable td:first-child strong{color:var(--accent)}
+.jumptable td:last-child{white-space:nowrap}
+@media(max-width:768px){
+  .sidebar{position:fixed;top:0;left:0;bottom:0;z-index:1045;transform:translateX(-100%);width:280px;box-shadow:4px 0 12px rgba(0,0,0,.08)}
+  .sidebar.open{transform:translateX(0)}
+  .content{padding:64px 16px 24px}
+  .burger{display:flex!important}
+  .jumptable thead{display:none}
+  .jumptable,.jumptable tbody{display:block;width:100%}
+  .jumptable tr{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:14px 4px;border-bottom:1px solid rgba(49,54,66,.08);background:transparent!important}
+  .jumptable td{display:block;padding:0;border:none;white-space:normal!important}
+  .jumptable td:first-child{order:1;flex:1;font-size:15px}
+  .jumptable td:last-child{order:2}
+  .jumptable td:nth-child(2){order:3;flex-basis:100%;font-size:13px;line-height:1.5;color:var(--text-body)}
+}
+.burger{display:none;position:fixed;top:12px;left:12px;z-index:1050;align-items:center;justify-content:center;width:44px;height:44px;background:var(--bg-card);border:none;border-radius:var(--radius-input);box-shadow:var(--shadow-soft);cursor:pointer;color:var(--text-heading);font-size:20px}
+.overlay{display:none;position:fixed;inset:0;background:rgba(13,27,46,.3);z-index:1040}
+.overlay.open{display:block}
 </style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="topbar__brand">Relatório Profissional <span>08/abr/2026</span></div>
-  <nav class="topbar__nav">
-    <a class="topbar__link" href="#resumo">Resumo</a>
-    <a class="topbar__link" href="#quem">Quem fez</a>
-    <a class="topbar__link" href="#decisoes">Decisões</a>
-    <a class="topbar__link" href="#projetos">Projetos</a>
-    <a class="topbar__link" href="#destaque">Destaques</a>
-    <a class="topbar__link" href="#setup">Setup</a>
-  </nav>
-</header>
+<button class="burger" onclick="toggleSidebar()" aria-label="Menu">&#9776;</button>
+<div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
-<div class="wrap">
-
-<!-- RESUMO EXECUTIVO -->
-<section id="resumo">
-  <div class="eyebrow">08/04/2026 - Período: 18/mar - 08/abr (21 dias)</div>
-  <h1>Resumo Executivo</h1>
-  <p class="lead">Este relatório documenta 21 dias de operação no workspace do Cursor de Eduardo Gasparetto para o Ecommerce na Prática (EnP).</p>
-  <p>Os projetos seguem uma lógica de retroalimentação: o Design System ensina a IA a criar interfaces; as interfaces geram padrões que voltam pro Design System; os projetos testam as regras e as regras melhoram os projetos seguintes.</p>
-  <div class="card">
-    <div class="kpi-grid">
-      <div><div class="kpi__value">252</div><div class="kpi__label">Commits totais</div></div>
-      <div><div class="kpi__value">14</div><div class="kpi__label">Projetos ativos</div></div>
-      <div><div class="kpi__value">4</div><div class="kpi__label">Apps em produção</div></div>
-      <div><div class="kpi__value">5</div><div class="kpi__label">Skills criadas</div></div>
-      <div><div class="kpi__value">3</div><div class="kpi__label">Provedores de IA</div></div>
-      <div><div class="kpi__value">21</div><div class="kpi__label">Dias de operação</div></div>
-    </div>
+<div class="shell">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar__header">
+    <div class="sidebar__title"><img src="https://marca.ecommercenapratica.com/images/logos/simbolo-azul-ecommerce-na-pratica.svg" alt="Ecommerce na Prática">Análise de Trabalho</div>
+    <div class="sidebar__sub">Ecommerce na Prática <span>jul/26</span></div>
   </div>
-</section>
-
-<!-- QUEM FEZ -->
-<section id="quem">
-  <div class="eyebrow">Quem fez</div>
-  <h1>O profissional</h1>
-  <p class="lead"><strong>Eduardo Gasparetto</strong> - designer no Ecommerce na Prática (EnP / Nuvemshop).</p>
-  <p>O que o workspace revela é um escopo que vai além do título. Em 21 dias, a mesma pessoa projetou interfaces, escreveu código frontend e backend, arquitetou sistemas com IA, criou infraestrutura de skills, fez deploy e manutenção, produziu inteligência de mercado e dirigiu conteúdo de conversão.</p>
-
-  <h3>Competências demonstradas</h3>
-  <div class="table-wrap">
-  <table><thead><tr><th>Competência</th><th>Evidência</th></tr></thead><tbody>
-    <tr><td><strong>Frontend avançado</strong></td><td>3 apps Next.js em produção + LPs com CSS inline, SVG animado</td></tr>
-    <tr><td><strong>Design System thinking</strong></td><td>DS versionado (v3) com 3 modos, regras negativas, pipeline skill &rarr; guia &rarr; page builder</td></tr>
-    <tr><td><strong>Integração com IA</strong></td><td>Cadeia multi-modelo, skills que ensinam a IA, gestão de prompts</td></tr>
-    <tr><td><strong>Velocidade</strong></td><td>Data Intel: 100 commits, zero a produção com 33+ features em 11 dias</td></tr>
-    <tr><td><strong>Pensamento sistêmico</strong></td><td>Cria infraestrutura que multiplica entregas futuras</td></tr>
-    <tr><td><strong>Visão de produto</strong></td><td>Cada projeto é concebido como ferramenta escalável</td></tr>
-    <tr><td><strong>Autonomia</strong></td><td>14 projetos ativos sem dependências externas</td></tr>
-    <tr><td><strong>UX e conversão</strong></td><td>LPs com social proof, A/B nativo, UTM tracking</td></tr>
-  </tbody></table>
-  </div>
-
-  <h3>Stack de competências</h3>
-  <div class="meter"><span class="meter__label">Autonomia</span><div class="meter__bar"><div class="meter__fill" style="width:95%;background:var(--green)"></div></div><span class="meter__value">9.5</span></div>
-  <div class="meter"><span class="meter__label">Integração IA</span><div class="meter__bar"><div class="meter__fill" style="width:90%;background:var(--green)"></div></div><span class="meter__value">9.0</span></div>
-  <div class="meter"><span class="meter__label">Design System</span><div class="meter__bar"><div class="meter__fill" style="width:90%;background:var(--green)"></div></div><span class="meter__value">9.0</span></div>
-  <div class="meter"><span class="meter__label">Velocidade</span><div class="meter__bar"><div class="meter__fill" style="width:90%;background:var(--green)"></div></div><span class="meter__value">9.0</span></div>
-  <div class="meter"><span class="meter__label">Frontend</span><div class="meter__bar"><div class="meter__fill" style="width:85%;background:var(--accent)"></div></div><span class="meter__value">8.5</span></div>
-  <div class="meter"><span class="meter__label">Visão de Produto</span><div class="meter__bar"><div class="meter__fill" style="width:85%;background:var(--accent)"></div></div><span class="meter__value">8.5</span></div>
-  <div class="meter"><span class="meter__label">UX / Conversão</span><div class="meter__bar"><div class="meter__fill" style="width:80%;background:var(--accent)"></div></div><span class="meter__value">8.0</span></div>
-  <div class="meter"><span class="meter__label">Backend / Infra</span><div class="meter__bar"><div class="meter__fill" style="width:65%;background:var(--orange)"></div></div><span class="meter__value">6.5</span></div>
-  <div class="meter"><span class="meter__label">Documentação</span><div class="meter__bar"><div class="meter__fill" style="width:65%;background:var(--orange)"></div></div><span class="meter__value">6.5</span></div>
-  <div class="meter"><span class="meter__label">Organização</span><div class="meter__bar"><div class="meter__fill" style="width:60%;background:var(--orange)"></div></div><span class="meter__value">6.0</span></div>
-</section>
-
-<!-- DECISÕES ESTRATÉGICAS -->
-<section id="decisoes">
-  <div class="eyebrow">Arquitetura e estratégia</div>
-  <h1>Decisões</h1>
-
-  <div class="grid-2">
-    <div class="card card--accent"><h4>Design System com 3 modos</h4><p style="margin:0">Institucional Claro (site), Escuro Institucional (ferramentas) e Serviços (consultoria). Cada modo tem regras negativas que previnem inconsistência.</p></div>
-    <div class="card card--accent"><h4>App Guidelines encadeadas</h4><p style="margin:0">Derivadas do Nimbus (Nuvemshop), adaptadas ao EnP. O DS define como parece, as Guidelines definem como se organiza.</p></div>
-    <div class="card card--accent"><h4>IA multi-modelo</h4><p style="margin:0">Gemini (primário) &rarr; Groq (fallback) &rarr; Claude (reserva). Quando um cai, o próximo assume sem que o usuário perceba.</p></div>
-    <div class="card card--accent"><h4>Skills como infraestrutura</h4><p style="margin:0">Conhecimento codificado em .md que a IA lê e aplica - não PDFs que alguém precisa consultar. Versionado, com migration guide.</p></div>
-    <div class="card card--accent"><h4>Magic-link auth</h4><p style="margin:0">Sem senha pro público interno. Email &rarr; link &rarr; acesso. Contextos diferentes pedem soluções diferentes.</p></div>
-    <div class="card card--accent"><h4>Vercel pra apps, FTP pra LPs</h4><p style="margin:0">Apps dinâmicos no Vercel (SSR, crons, APIs). LPs estáticas via FTP. Router A/B em PHP puro.</p></div>
-  </div>
-  <blockquote>Infraestrutura antes de produto. Antes de criar LPs, criou um Design System. Antes de criar ferramentas, criou App Guidelines. Antes de escalar, criou a fábrica.</blockquote>
-</section>
-
-<!-- MAPA DE PROJETOS -->
-<section id="projetos">
-  <div class="eyebrow">Inventário</div>
-  <h1>Mapa de Projetos</h1>
-  <div class="table-wrap">
-  <table><thead><tr><th>Projeto</th><th>Tipo</th><th>Commits</th><th>Status</th></tr></thead><tbody>
-    <tr><td><strong>enp-data-intel</strong></td><td>App IA</td><td>100</td><td><span class="badge badge--green">Produção ativa</span></td></tr>
-    <tr><td><strong>enp-img (monorepo)</strong></td><td>App IA</td><td>69</td><td><span class="badge badge--green">Produção</span></td></tr>
-    <tr><td><strong>Criação EnP</strong></td><td>Plataforma</td><td>18</td><td><span class="badge badge--green">Produção ativa</span></td></tr>
-    <tr><td><strong>enp-marca</strong></td><td>Guia marca</td><td>26</td><td><span class="badge badge--green">Produção</span></td></tr>
-    <tr><td><strong>enp-design-system</strong></td><td>Skill</td><td>12</td><td><span class="badge badge--blue">v3.0.0</span></td></tr>
-    <tr><td><strong>enp-análise-consultoria</strong></td><td>Relatório</td><td>9</td><td><span class="badge badge--green">Produção</span></td></tr>
-    <tr><td><strong>enp-app-guidelines</strong></td><td>Skill</td><td>5</td><td><span class="badge badge--blue">v1.2.0</span></td></tr>
-    <tr><td><strong>appzero</strong></td><td>Spec</td><td>5</td><td><span class="badge badge--gray">Especificação</span></td></tr>
-    <tr><td><strong>enp-page-builder</strong></td><td>Page builder</td><td>2</td><td><span class="badge badge--gray">Protótipo</span></td></tr>
-    <tr><td><strong>consultoria LP</strong></td><td>Landing page</td><td>-</td><td><span class="badge badge--orange">Staging</span></td></tr>
-    <tr><td><strong>enp26 LP</strong></td><td>Landing page</td><td>-</td><td><span class="badge badge--green">Produção</span></td></tr>
-    <tr><td><strong>enp-perpetuo</strong></td><td>Router A/B</td><td>-</td><td><span class="badge badge--green">Produção</span></td></tr>
-    <tr><td><strong>enp-wireframes</strong></td><td>Catálogo</td><td>-</td><td><span class="badge badge--orange">Pausado</span></td></tr>
-  </tbody></table>
-  </div>
-</section>
-
-<!-- PROJETOS DESTAQUE -->
-<section id="destaque">
-  <div class="eyebrow">Em detalhe</div>
-  <h1>Projetos Destaque</h1>
-
-  <div class="card">
-    <h3>Design System v3.0.0 <span class="badge badge--blue">12 commits</span></h3>
-    <p>Fundação visual de todo o ecossistema. Especificação completa codificada como skill instalável: tipografia, cores (3 modos cromáticos), spacing, radius, z-index, layout, ícones, logo, gradientes, tabelas, superfícies. Regras negativas por modo. Bootstrap CSS. Checklist pós-build com 14 verificações.</p>
-    <p><strong>Evolução:</strong> v2.0 &rarr; v2.1 (ritmo vertical) &rarr; v2.3 (logo, wireframes) &rarr; v2.4 (inicialização, regras negativas) &rarr; v3.0.0 (split core + 5 arquivos) &rarr; v3.1.0 (alwaysApply)</p>
-    <p style="margin:0">Disponível em <a href="https://marca.ecommercenapratica.com" target="_blank" rel="noopener noreferrer">marca.ecommercenapratica.com</a></p>
-  </div>
-
-  <div class="card">
-    <h3>Data Intel <span class="badge badge--green">100 commits - 11 dias</span></h3>
-    <p>Plataforma de inteligência de dados que conecta fontes (GA4, Clarity), cruza visão macro com micro e entrega análises via IA. Coleta automaticamente, identifica anomalias, gera briefings com indicadores semânticos e permite conversar via chat.</p>
-    <p style="margin:0"><strong>Stack:</strong> Next.js 15, React 19, Drizzle ORM, PostgreSQL (Neon), Gemini + Groq + Claude, Chart.js, Vercel Crons.</p>
-  </div>
-
-  <div class="card">
-    <h3>Criação EnP <span class="badge badge--green">69 + 18 commits</span></h3>
-    <p>Hub centralizado de criação de ativos visuais com IA. Briefing &rarr; IA entende contexto &rarr; gera no padrão EnP &rarr; pronto. Pivotou entre 4 provedores de IA até achar o melhor (Imagen 4). Login, admin, onboarding, splash animado. Evoluiu de gerador de thumbnails para plataforma multi-produto.</p>
-  </div>
-
-  <div class="card">
-    <h3>Integração Slack + Cursor <span class="badge badge--blue">PoC</span></h3>
-    <p>Página criada inteiramente pelo chat do Slack. Alguém escreveu uma mensagem &rarr; agente do Cursor baixou a skill do DS &rarr; aplicou identidade visual &rarr; publicou no GitHub Pages. Ninguém abriu um editor.</p>
-    <p style="margin:0"><strong>Demo:</strong> <a href="https://eduardogasparetto-cpu.github.io/slack-cursor-git/" target="_blank" rel="noopener noreferrer">eduardogasparetto-cpu.github.io/slack-cursor-git &rarr;</a></p>
-  </div>
-
-  <div class="card">
-    <h3>AutoLog <span class="badge badge--gray">Spec pronta</span></h3>
-    <p>Skill de autodocumentação que analisa padrões de trabalho, registra decisões e propõe melhorias no workflow. Resolve o gap de organização e documentação com automação: documenta automaticamente e pede confirmação.</p>
-  </div>
-</section>
-
-<!-- SETUP -->
-<section id="setup">
-  <div class="eyebrow">Ambiente de trabalho</div>
-  <h1>Setup</h1>
-
-  <h3>Software Stack</h3>
-  <div class="table-wrap">
-  <table><thead><tr><th>Ferramenta</th><th>Papel</th></tr></thead><tbody>
-    <tr><td><strong>Cursor</strong></td><td>Editor principal + agentes IA</td></tr>
-    <tr><td><strong>Claude Code</strong></td><td>Agente de background pra tasks longas</td></tr>
-    <tr><td><strong>Git + GitHub</strong></td><td>Versionamento e CI/CD</td></tr>
-    <tr><td><strong>Figma (nativo + MCP)</strong></td><td>Design + conexão direta com Cursor</td></tr>
-    <tr><td><strong>Vercel</strong></td><td>Deploy automático</td></tr>
-    <tr><td><strong>Slack</strong></td><td>Comunicação + integrações de agentes</td></tr>
-  </tbody></table>
-  </div>
-
-  <h3>Recomendação de hardware</h3>
-  <p>Com base no volume de projetos, na quantidade de agentes simultâneos e nas ferramentas utilizadas neste workspace (Cursor, Claude Code, Figma MCP, Vercel, builds Next.js), a análise aponta RAM como o principal fator limitante. A recomendação abaixo considera o mínimo para operar sem fricção e o ideal para escalar com agentes paralelos e contextos maiores.</p>
-  <div class="table-wrap">
-  <table><thead><tr><th></th><th>Windows</th><th>macOS</th></tr></thead><tbody>
-    <tr><td><strong>Mínimo</strong></td><td>i7, 32 GB, NVMe 512 GB</td><td>MacBook Pro M4, 24 GB</td></tr>
-    <tr><td><strong>Ideal</strong></td><td>i9, 64 GB, RTX 4060, NVMe 1 TB</td><td>MacBook Pro M4 Pro, 36 GB</td></tr>
-  </tbody></table>
-  </div>
-</section>
-
+  <nav id="nav"></nav>
+</aside>
+<main class="content" id="content"></main>
 </div>
+
+<script>
+const DATA = {
+visao: {
+  label: 'Visão Geral',
+  sections: {
+    resumo: { title: 'Resumo Executivo', html: `
+      <div class="eyebrow">Julho de 2026</div>
+      <h1>Resumo Executivo</h1>
+      <p class="lead">Este documento analisa o trabalho desenvolvido para o Ecommerce na Prática, da concepção de marca à engenharia que a sustenta.</p>
+      <h2>Os 7 projetos em destaque</h2>
+      <table class="jumptable">
+        <thead><tr><th>Projeto</th><th>O que é</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr onclick="go('destaques','ds')"><td><strong>EnP Design System</strong></td><td>A identidade da marca como código, aplicada por agentes de IA e pessoas</td><td><span class="badge badge--green">Em uso</span></td></tr>
+          <tr onclick="go('destaques','marca')"><td><strong>Guia de Marca Online</strong></td><td>Site público da identidade visual, para times e parceiros</td><td><span class="badge badge--green">No ar</span></td></tr>
+          <tr onclick="go('destaques','photo')"><td><strong>IA Photo Studio</strong></td><td>Elenco de personagens sintéticos para a imagem da marca</td><td><span class="badge badge--green">Ativo</span></td></tr>
+          <tr onclick="go('destaques','produto')"><td><strong>Produto</strong></td><td>Materiais interativos de ensino, produzidos pelo time e publicados via Vercel em produto.ecommercenapratica.com</td><td><span class="badge badge--green">Em produção</span></td></tr>
+          <tr onclick="go('destaques','conhecimento')"><td><strong>Plataforma de Conhecimento</strong></td><td>Fonte de verdade central da marca para pessoas e agentes</td><td><span class="badge badge--blue">Em construção</span></td></tr>
+          <tr onclick="go('destaques','dataintel')"><td><strong>EnP Data Intel</strong></td><td>Inteligência de dados comportamentais com 4 fontes integradas</td><td><span class="badge badge--orange">Prova de conceito</span></td></tr>
+          <tr onclick="go('destaques','hub')"><td><strong>EnP Hub de Criação</strong></td><td>Criação visual self-service dentro da identidade da marca</td><td><span class="badge badge--orange">Prova de conceito</span></td></tr>
+        </tbody>
+      </table>
+      <p>O trabalho é distribuído em 29 repositórios que abrangem sistemas de marca, ferramentas de criação de conteúdo, plataformas de dados e conhecimento, e as páginas do ecossistema.</p>
+      <p>O eixo é um <strong>Design System executável</strong>: a identidade da marca definida uma vez, em código, e distribuída para agentes de IA e para pessoas. O efeito é organizacional - times de produto e marketing produzem dentro da marca sem um designer em cada entrega, com materiais de ensino já no ar; sua face pública, o Guia de Marca, é usada internamente e acessível a parceiros.</p>
+      <p>Ao redor, as ferramentas seguem um mesmo princípio - <em>o dado no centro, o código como pipeline reutilizável</em> - na geração de imagem de marca, na inteligência de dados e numa base de conhecimento central pensada como fonte de verdade para pessoas e agentes.</p>
+      <div class="card card--accent"><p style="margin:0">O conjunto se divide com honestidade entre <strong>infraestrutura viva e em uso</strong> (Design System, Guia de Marca, materiais de ensino) e <strong>provas de conceito robustas ainda não adotadas</strong> (plataforma de dados, hub de criação) - que medem não a adoção, mas o teto de complexidade que um profissional alcança sozinho, com IA como par de engenharia e as decisões de arquitetura próprias.</p></div>
+    `},
+  }
+},
+destaques: {
+  label: 'Projetos em Destaque',
+  sections: {
+    ds: { title: 'EnP Design System', html: `
+      <div class="eyebrow"><span class="badge badge--green">Manutenção ativa</span> &middot; v3.3.0 &middot; usado por times de produto e marketing</div>
+      <h2>EnP Design System</h2>
+      <p class="lead">Governança de marca como código: um pacote de 5 skills instalável em agentes de IA (Claude Code, Antigravity e claude.ai via navegador) que faz qualquer pessoa do time - técnica ou não - produzir peças dentro da identidade EnP.</p>
+      <div class="card card--accent"><p style="margin:0">Não é apenas documentação que o agente consulta: <strong>as regras se aplicam sozinhas na geração.</strong> Um pedido em linguagem natural ("faz uma landing pra EnP") ativa os tokens automaticamente, aplica 60 regras invioláveis consolidadas e pode disparar uma cadeia de validação em três passes (auditoria de violações &rarr; polish visual &rarr; revisão de microcopy na voz da marca). O agente é proibido de inventar valores fora do sistema.</p></div>
+      <div class="card"><h4>Linhagem institucional</h4><p style="margin:0">Baseado no Nuvemshop Brand Design Guidelines; manteve tipografia e sistema de espaçamento, mas expandiu para 3 modos cromáticos próprios do EnP, gradientes nomeados, tokens de motion e semântica de cor validada por acessibilidade (WCAG).</p></div>
+      <div class="card"><h4>Efeito organizacional</h4><p style="margin:0">Conteúdo da plataforma de ensino (produto.ecommercenapratica.com) é produzido pelo próprio time de produto; páginas do time de marketing são produzidas por eles. A revisão central passou a ser só técnica (otimização, formulários, integrações) - a consistência de marca deixou de depender de um designer no circuito de cada peça.</p></div>
+      <div class="card"><h4>Fonte única da verdade</h4><p style="margin:0">Tokens, ícones, componentes e voz exportados em JSONs machine-readable que alimentam o site público da marca, eliminando divergência entre a especificação e a vitrine.</p></div>
+      <div class="card"><h4>Em expansão de meio</h4><p style="margin:0">A versão atual (jun/2026) adicionou escala tipográfica para vídeo/motion, estendendo o sistema de web para broadcast.</p></div>
+    `},
+    marca: { title: 'Guia de Marca Online', html: `
+      <div class="eyebrow"><span class="badge badge--green">Site no ar</span> &middot; usado por times internos e parceiros</div>
+      <h2>Guia de Marca Online</h2>
+      <a class="sitelink" href="https://marca.ecommercenapratica.com" target="_blank" rel="noopener noreferrer">marca.ecommercenapratica.com &rarr;</a>
+      <p class="lead">A face humana do Design System. Enquanto o <code>enp-design-system</code> é a fonte da verdade que agentes de IA consomem (código, tokens, regras), o <strong>Guia de Marca é o site público onde pessoas navegam essa mesma identidade</strong> - vê a paleta, copia um HEX, testa um gradiente, baixa o logo.</p>
+      <div class="card card--accent"><p style="margin:0">Um alimenta o outro: o guia lê os tokens do Design System, garantindo que a vitrine nunca divirja da especificação.</p></div>
+      <p>Aplicação web com demonstrações ao vivo de toda a identidade visual do Ecommerce na Prática:</p>
+      <div class="card"><h4>15 seções interativas</h4><p style="margin:0">Troca de modo cromático em tempo real (institucional, escuro, serviços) - cada cor com HEX, RGB e CMYK prontos para copiar.</p></div>
+      <div class="card"><h4>Biblioteca completa</h4><p style="margin:0">Escala tipográfica com preview ao vivo, 19 gradientes nomeados, 206 ícones com busca em português e inglês, catálogo de wireframes por categoria, componentes interativos (botões e inputs em todos os estados) e tabelas de contraste com validação de acessibilidade.</p></div>
+      <div class="card"><h4>Alcance externo</h4><p style="margin:0">Por ser um site público, serve de referência não só para os times internos, mas também para parceiros que precisam produzir dentro da identidade da marca.</p></div>
+    `},
+    photo: { title: 'IA Photo Studio', html: `
+      <div class="eyebrow"><span class="badge badge--green">Ativo</span> &middot; em uso em peças publicadas</div>
+      <h2>IA Photo Studio</h2>
+      <p class="lead">Pipeline de geração de imagem que substitui o ensaio fotográfico tradicional por um elenco fixo de personagens sintéticos.</p>
+      <p>Criado usando Claude Code para configurar e construir todo o pipeline em ComfyUI local (orquestrador dos inputs), gerando as imagens via API do Gemini 3 Pro Image - nativo em 4K, referência atual em consistência de identidade. Arquitetura altamente modularizada, desenhada para facilitar a troca de casting ou do modelo de IA que gera a imagem.</p>
+      <blockquote>O princípio: <strong>personagem é dado, pipeline é código.</strong></blockquote>
+      <div class="card"><h4>Estratégia embutida</h4><p style="margin:0">Cada personagem é rastreável a um ICP formal e a um recorte real da base pagante; os inputs selecionados (rosto, figurino, cenário) e um "passaporte visual" funcionam como chaves para a consistência de personagem e fazem a foto carregar posicionamento.</p></div>
+      <div class="card"><h4>Custo</h4><p style="margin:0">Uma rodada completa do elenco (4 personagens &times; ~30 cenas &asymp; 120 imagens em 4K) custa entre US$ 14 e US$ 29, conforme preço público da API (US$ 0,12–0,24 por imagem).</p></div>
+      <div class="card"><h4>Próximo passo</h4><p style="margin:0">Segunda rodada em preparo (direção fotográfica, expansão para outros ICPs); a mesma lógica é replicável em vídeo e áudio.</p></div>
+      <div class="card"><h4>Curadoria</h4><p style="margin:0">A construção do casting permanece deliberadamente sob coordenação humana; a IA entra nos dados, no pipeline e no output, não na decisão editorial.</p></div>
+      <div class="card card--warn"><h4>Em aberto</h4><p style="margin:0">Disclosure de imagem sintética; métrica de adoção das peças.</p></div>
+    `},
+    produto: { title: 'Produto (organização)', html: `
+      <div class="eyebrow"><span class="badge badge--green">Em produção</span> &middot; materiais no ar para alunos &middot; produzido pelo time</div>
+      <h2>Produto <span class="badge badge--gray">org e-commerce-na-pratica</span></h2>
+      <p class="lead">Repositório central de materiais digitais do time de produto - e a prova operacional de que o modelo "Design System + IA" funciona além do seu autor. Aqui, quem produz é o time; a revisão central é apenas técnica.</p>
+      <div class="card card--accent">
+        <p style="margin:0">Os materiais complementares deixaram de ser PDFs estáticos e viraram HTML interativo. <strong>Já estão no ar, embedados na plataforma de ensino</strong>, dentro da jornada do aluno.</p>
+        <p style="margin:12px 0 0"><a href="https://enp-produto.vercel.app/trilha-ia/aula-llms/" target="_blank" rel="noopener noreferrer">As principais LLMs e como configurá-las bem</a></p>
+        <p style="margin:4px 0 0"><a href="https://enp-produto.vercel.app/trilha-ia/guia-prompts/" target="_blank" rel="noopener noreferrer">Prompts de IA para o seu E-commerce</a></p>
+      </div>
+      <div class="card"><h4>Produção descentralizada</h4><p style="margin:0">O material foi produzido pela analista de produto responsável pela trilha, usando as skills do EnP Design System no Claude Code; o resultado é 100% conforme as 60 regras da marca, com auditoria documentada (16 correções catalogadas).</p></div>
+      <div class="card"><h4>Processo de engenharia aplicado a conteúdo</h4><p style="margin:0">O repositório inclui documento de continuidade com histórico de decisões por iteração, backlog priorizado com estimativas, riscos mapeados com mitigação e comandos de validação automática. Qualquer pessoa (ou agente) retoma o trabalho de onde parou.</p></div>
+      <div class="card"><h4>Desenhado para escalar</h4><p style="margin:0">O primeiro material foi construído explicitamente como template: os próximos seguem a mesma estrutura e reutilizam os componentes já validados.</p></div>
+    `},
+    conhecimento: { title: 'Plataforma de Conhecimento', html: `
+      <div class="eyebrow"><span class="badge badge--blue">Em construção</span> &middot; fundação recém-estabelecida &middot; fonte de verdade central</div>
+      <h2>Plataforma de Conhecimento e Conteúdo <span class="badge badge--gray">enp-payload-test</span></h2>
+      <p class="lead">O projeto de maior ambição estratégica do conjunto: uma <strong>base de conhecimento central do Ecommerce na Prática</strong> - voz da marca, público, posicionamentos, produtos, cases, citações de especialistas - que serve, ao mesmo tempo, o conteúdo público (site, blog, landing pages).</p>
+      <p>Construída sobre Payload CMS + Next.js com banco próprio (PostgreSQL), sem mensalidade de plataforma nem dependência de fornecedor guardando os dados.</p>
+      <div class="card card--accent"><p style="margin:0">O ponto-chave da arquitetura: <strong>o site é apenas um dos consumidores dessa base.</strong> A mesma informação é exposta por API e, na visão-alvo, por MCP - para que agentes de IA consultem o conhecimento oficial da empresa como fonte confiável, em vez de "inventar" a voz da marca a cada geração.</p></div>
+      <div class="card"><h4>Problema que resolve</h4><p style="margin:0">Hoje o conhecimento da EnP está fragmentado (blog num lugar, landing pages em HTML estático, voz e posicionamentos em planilhas soltas). Não existe uma fonte única que sirva ao mesmo tempo pessoas e automações de IA. A plataforma unifica isso.</p></div>
+      <div class="card"><h4>Separação deliberada</h4><p style="margin:0">Duas famílias de conteúdo: <em>Conhecimento</em> (o que a marca sabe e defende, consumido por pessoas e agentes) e <em>Canal</em> (onde a marca publica). O mesmo princípio de arquitetura que percorre os projetos: o dado no centro, os consumidores ao redor.</p></div>
+      <div class="card"><h4>Já construído</h4><p style="margin:0">Fundação rodando: base de conhecimento com Topics e Quotes expostas por API, construtor visual de páginas drag-and-drop (Puck), admin customizado com o Design System EnP aplicado, e camada de IA prevista para geração de conteúdo assistida.</p></div>
+      <div class="card card--accent"><h4>Status</h4><p style="margin:0">Fase de fundação em andamento; é a aposta mais recente e conecta os fios dos outros projetos - o Design System para a identidade, a lógica de dado-no-centro do Data Intel, e o MCP como ponte para os agentes.</p></div>
+    `},
+    dataintel: { title: 'EnP Data Intel', html: `
+      <div class="eyebrow"><span class="badge badge--orange">Prova de conceito</span> &middot; pausado &middot; não adotado pelo time</div>
+      <h2>EnP Data Intel</h2>
+      <p class="lead">Plataforma de inteligência de dados comportamentais construída como prova de conceito - e a demonstração mais clara de que este único profissional, com IA como par de engenharia, entrega sistema de complexidade que normalmente exigiria um time.</p>
+      <div class="card">
+        <div class="kpi-grid">
+          <div class="kpi"><div class="kpi__value">31k</div><div class="kpi__label">Linhas de código</div></div>
+          <div class="kpi"><div class="kpi__value">4</div><div class="kpi__label">Fontes de dados</div></div>
+          <div class="kpi"><div class="kpi__value">50</div><div class="kpi__label">Telas de dashboard</div></div>
+          <div class="kpi"><div class="kpi__value">~3</div><div class="kpi__label">Meses de desenvolvimento</div></div>
+        </div>
+      </div>
+      <p>Integra 4 fontes de dados (GA4, Microsoft Clarity, Panda Video e Curseduca) em 50 telas de dashboard com 8 módulos de análise.</p>
+      <div class="card"><h4>Opera sozinho</h4><p style="margin:0">5 rotinas automáticas: coleta diária, detecção de anomalias, briefing diário por IA, resumo semanal e política de retenção de dados. O sistema entrega insight sem ninguém pedir.</p></div>
+      <div class="card"><h4>Arquitetura extensível</h4><p style="margin:0">Conectores de dados plugáveis por contrato: Panda Video e Curseduca foram adicionados depois do núcleo, sem reescrita. Mesmo princípio dos demais projetos: fonte é dado, pipeline é código.</p></div>
+      <div class="card"><h4>Maturidade operacional</h4><p style="margin:0">Autenticação por magic link, feature flags, prompts de IA editáveis em admin sem deploy, auditoria de segurança com correções aplicadas.</p></div>
+      <div class="card"><h4>Autoria integral</h4><p style="margin:0">Todas as decisões de arquitetura são de um único profissional, tomadas com pesquisa e entendimento explícito de trade-offs; a IA participa como interlocutora técnica, não como decisora.</p></div>
+      <div class="card card--warn"><h4>Status</h4><p style="margin:0">O projeto não foi adotado pelo time e está pausado. Permanece como referência do padrão de arquitetura e do teto de complexidade alcançável em produção solo.</p></div>
+    `},
+    hub: { title: 'EnP Hub de Criação', html: `
+      <div class="eyebrow"><span class="badge badge--orange">Prova de conceito</span> &middot; pausado por decisão estratégica</div>
+      <h2>EnP Hub de Criação</h2>
+      <p class="lead">Hub de criação self-service: aplicação web onde qualquer pessoa da empresa gera peças visuais dentro da identidade EnP, sem depender de designer. Prova de conceito funcional - 11,5 mil linhas de código em ~2 meses.</p>
+      <p>Duas ferramentas e uma camada de operação:</p>
+      <div class="card"><h4>Gerador de thumbnails</h4><p style="margin:0">Briefing textual &rarr; IA escreve a direção fotográfica &rarr; modelo de imagem gera a capa, com foto de referência opcional.</p></div>
+      <div class="card"><h4>Editor de imagem</h4><p style="margin:0">Canvas com sistema de layers, drag/resize de texto e logo, safe zones e paletas da marca, integrado ao EnP Design System.</p></div>
+      <div class="card"><h4>Admin de operação</h4><p style="margin:0">Usuários, prompts editáveis com histórico de versões, modelos de IA configuráveis, feature flags e auditoria.</p></div>
+      <p>Dois traços de projeto que carregam a mesma lógica do restante dos projetos:</p>
+      <div class="card card--accent"><h4>Self-service por desenho</h4><p style="margin:0">Login por magic link com auto-registro para e-mails <code>@nuvemshop.com.br</code>: qualquer pessoa da empresa entra sozinha, sem provisionamento.</p></div>
+      <div class="card card--accent"><h4>Criativo guiado por dado</h4><p style="margin:0">As referências visuais do gerador são as thumbnails de melhor performance real do canal, catalogadas por CTR; a estética parte de evidência, não de preferência.</p></div>
+      <div class="card card--warn"><h4>Status</h4><p style="margin:0">Pausado por uma questão conceitual, não de execução. A ferramenta treina a IA para reproduzir o que funcionou no passado - a audiência que o EnP já tem, os temas que já aborda. Com a marca sendo repensada desde o início do ano e o posicionamento por canal ainda em consolidação, a pergunta que define a próxima versão - <em>o que as audiências que ainda não temos procuram, e como isso se representa visualmente?</em> - ainda não tem como ser respondida. O projeto aguarda essa definição, não uma correção técnica.</p></div>
+    `},
+    conjunto: { title: 'Leitura de Conjunto', html: `
+      <div class="eyebrow">Síntese</div>
+      <h2>Leitura de Conjunto</h2>
+      <p class="lead">O conjunto analisado reúne 29 repositórios do ecossistema Ecommerce na Prática. Três leituras se destacam.</p>
+      <div class="card"><h4>Um princípio de arquitetura se repete</h4><p style="margin:0">Nos projetos mais maduros, a mesma decisão aparece: separar o que é <em>dado</em> (a parte variável, curada por humano) do que é <em>pipeline</em> (o código reutilizável). O personagem sintético é dado, o gerador de imagem é código; a fonte de analytics é dado, o conector é código; a referência criativa é dado, a ferramenta é código. Não é repetição acidental - é uma forma consistente de pensar sistemas, que troca esforço manual por infraestrutura.</p></div>
+      <div class="card"><h4>O Design System é o eixo, não um item da lista</h4><p style="margin:0">Ele deixou de ser documentação e virou governança executável: define a identidade uma vez, em código, e a distribui para agentes de IA e pessoas. O efeito organizacional é o ponto - times de produto e marketing produzem peças dentro da marca sem um designer no circuito de cada entrega, e a revisão central passou a ser técnica. O Guia de Marca é a face pública desse mesmo sistema, acessível inclusive a parceiros.</p></div>
+      <div class="card"><h4>Há uma divisão honesta entre adoção e demonstração</h4><p style="margin:0">Parte do trabalho está no ar e em uso - o Design System, o Guia de Marca, os materiais interativos da plataforma de ensino. Outra parte são provas de conceito robustas que não foram adotadas - a plataforma de dados comportamentais (31 mil linhas), o hub de criação. Estas últimas não medem impacto de adoção; medem o teto de complexidade que um profissional alcança sozinho, com IA como par de engenharia e todas as decisões de arquitetura próprias.</p></div>
+    `},
+  }
+},
+inventario: {
+  label: 'Inventário',
+  sections: {
+    outros: { title: 'Outros Projetos', html: `
+      <div class="eyebrow">Cobertura completa</div>
+      <h2>Outros Projetos</h2>
+      <div class="card">
+        <div class="kpi-grid">
+          <div class="kpi"><div class="kpi__value">29</div><div class="kpi__label">Repositórios analisados</div></div>
+          <div class="kpi"><div class="kpi__value">7</div><div class="kpi__label">Projetos em destaque</div></div>
+          <div class="kpi"><div class="kpi__value">4</div><div class="kpi__label">Em produção / uso ativo</div></div>
+          <div class="kpi"><div class="kpi__value">1</div><div class="kpi__label">Aposta em construção</div></div>
+          <div class="kpi"><div class="kpi__value">2</div><div class="kpi__label">Provas de conceito</div></div>
+        </div>
+      </div>
+      <h3>Em manutenção</h3>
+      <div class="card"><h4>enp-email-templates <span class="badge badge--gray">org</span></h4><p style="margin:0">Biblioteca de modelos de e-mail do Ecommerce na Prática, padronizando a comunicação com clientes e parceiros. Última atualização em junho/2026.</p></div>
+      <div class="card"><h4>enp-page-editor-wp</h4><p style="margin:0">Editor de páginas do EnP para WordPress, aproximando a edição de páginas do ambiente onde o site institucional roda hoje. Em desenvolvimento em junho/2026.</p></div>
+      <div class="card"><h4>estudio-enp</h4><p style="margin:0">Experimento com o Google AI Studio como caminho rápido de prompt-para-aplicação: espaço de construção de soluções personalizadas para o EnP com prototipagem acelerada por IA.</p></div>
+      <hr>
+      <h3>Arquivados</h3>
+      <table><thead><tr><th>Repositório</th><th>O que é</th></tr></thead><tbody>
+        <tr><td><strong>enp-criacao</strong></td><td>Primeira versão do gerador de thumbnails para YouTube em duas etapas (briefing textual &rarr; geração via Gemini); o conceito evoluiu para o EnP Hub de Criação.</td></tr>
+        <tr><td><strong>enp-paginas</strong></td><td>Espaço de construção e validação de páginas; funcionou como bancada de testes de interface.</td></tr>
+        <tr><td><strong>enp-web-26</strong></td><td>Repositório centralizado das páginas web do ecossistema EnP para 2026: landing pages, páginas de consultoria e de consumidor.</td></tr>
+        <tr><td><strong>enp26</strong></td><td>Estrutura principal do produto digital EnP26, base de publicação e documentação das entregas do ciclo 2026.</td></tr>
+        <tr><td><strong>enp26-codeblocks</strong></td><td>Code blocks prontos para o Oxygen Builder (WordPress) baseados no design system, permitindo construção ágil de landing pages alinhadas à identidade visual.</td></tr>
+        <tr><td><strong>enp-custom-skills</strong></td><td>Skills customizadas de Cursor e Claude para fluxos recorrentes de engenharia, automação e produção de conteúdo do EnP; precursor do que se consolidou no EnP Design System.</td></tr>
+        <tr><td><strong>enp-intel</strong></td><td>Recursos de inteligência e análise estratégica para apoiar decisões no ecossistema; precursor conceitual do EnP Data Intel.</td></tr>
+        <tr><td><strong>enp-dicas-repos</strong></td><td>Curadoria de repositórios open-source relevantes, com explicações acessíveis para equipes de negócio e desenvolvimento.</td></tr>
+        <tr><td><strong>log-work</strong></td><td>Registro cronológico de atividade e relatórios de trabalho; a função evoluiu para o AutoLog, que gera esse histórico automaticamente.</td></tr>
+      </tbody></table>
+    `},
+    panorama: { title: 'Panorama Consolidado', html: `
+      <div class="eyebrow">Inventário</div>
+      <h2>Panorama Consolidado</h2>
+      <p>Repositórios com menor sinal de atividade recente, listados para inventário completo:</p>
+      <table><thead><tr><th>Repositório</th><th>Estado</th><th>O que é</th><th>Últ. atividade</th></tr></thead><tbody>
+        <tr><td><strong>enp-skills</strong> <span class="badge badge--gray">org</span></td><td><span class="badge badge--orange">Pausado</span></td><td>Catálogo de Claude Skills do ecossistema EnP</td><td>jun/2026</td></tr>
+        <tr><td><strong>enp26</strong> <span class="badge badge--gray">org</span></td><td><span class="badge badge--orange">Pausado</span></td><td>Espelho institucional da estrutura do produto EnP26</td><td>jun/2026</td></tr>
+        <tr><td><strong>enp-pages</strong> <span class="badge badge--gray">org</span></td><td><span class="badge badge--orange">Pausado</span></td><td>Repositório de páginas do EnP</td><td>mai/2026</td></tr>
+        <tr><td><strong>enp-analise-consultoria</strong></td><td><span class="badge badge--orange">Pausado</span></td><td>Interface de acesso estruturado a diagnósticos para clientes de consultoria</td><td>mai/2026</td></tr>
+        <tr><td><strong>appzero</strong></td><td><span class="badge badge--orange">Pausado</span></td><td>Base reutilizável para aplicações internas com IA: autenticação passwordless, gestão de prompts e painel admin</td><td>mai/2026</td></tr>
+        <tr><td><strong>enp-page-builder</strong></td><td><span class="badge badge--orange">Pausado</span></td><td>Builder visual de páginas conectado ao Design System (tokens aplicados automaticamente)</td><td>mai/2026</td></tr>
+        <tr><td><strong>enp-app-guidelines</strong></td><td><span class="badge badge--orange">Pausado</span></td><td>Diretrizes de aplicação; conteúdo absorvido pelo monorepo do Design System</td><td>mai/2026</td></tr>
+        <tr><td><strong>slack-cursor-git</strong></td><td><span class="badge badge--orange">Pausado</span></td><td>Integração Slack &harr; GitHub para solicitar tarefas de código diretamente do Slack</td><td>mai/2026</td></tr>
+        <tr><td><strong>tools</strong> <span class="badge badge--gray">org</span></td><td><span class="badge badge--gray">Rascunho</span></td><td>Repositório reservado para ferramentas; sem conteúdo publicado</td><td>-</td></tr>
+        <tr><td><strong>app-ecommercenapratica</strong> <span class="badge badge--gray">org</span></td><td><span class="badge badge--gray">Rascunho</span></td><td>Repositório reservado para o app EnP; sem conteúdo publicado</td><td>-</td></tr>
+      </tbody></table>
+    `},
+    metodologia: { title: 'Nota Metodológica', html: `
+      <div class="eyebrow">Como esta análise foi feita</div>
+      <h2>Nota Metodológica</h2>
+      <p class="lead">Esta análise foi construída a partir da leitura direta do código-fonte de cada repositório - o que foi de fato construído, não descrições fornecidas.</p>
+      <div class="card card--accent"><p style="margin:0">Cada projeto em destaque foi inspecionado individualmente e validado com o autor quanto a contexto de uso e adoção.</p></div>
+      <div class="card card--accent"><p style="margin:0">Os dados de estado e atividade vêm do <strong>AutoLog</strong> - sistema criado pelo autor que acompanha diariamente a evolução dos repositórios de forma automatizada.</p></div>
+      <p>O escopo cobre os repositórios do Ecommerce na Prática e reflete o estado em <strong>julho de 2026</strong>.</p>
+    `},
+  }
+}
+};
+
+let currentTab = 'visao';
+let currentSection = null;
+
+function buildNav() {
+  const nav = document.getElementById('nav');
+  let html = '';
+  Object.keys(DATA).forEach(tabKey => {
+    const tab = DATA[tabKey];
+    html += '<div class="nav__group">';
+    html += '<button class="nav__toggle" data-tab="' + tabKey + '">' + tab.label + '<span class="nav__caret">&#9654;</span></button>';
+    html += '<div class="nav__sub" data-tab="' + tabKey + '"><div class="nav__sub-inner">';
+    Object.keys(tab.sections).forEach(k => {
+      html += '<div class="sidebar__item" data-tab="' + tabKey + '" data-section="' + k + '">' + tab.sections[k].title + '</div>';
+    });
+    html += '</div></div></div>';
+  });
+  nav.innerHTML = html;
+  nav.querySelectorAll('.nav__toggle').forEach(el => {
+    el.addEventListener('click', () => showSection(el.dataset.tab, Object.keys(DATA[el.dataset.tab].sections)[0]));
+  });
+  nav.querySelectorAll('.sidebar__item').forEach(el => {
+    el.addEventListener('click', () => showSection(el.dataset.tab, el.dataset.section));
+  });
+}
+
+function showSection(tabKey, key) {
+  if (!DATA[tabKey] || !DATA[tabKey].sections[key]) return;
+  currentTab = tabKey;
+  currentSection = key;
+  document.getElementById('content').innerHTML = '<div class="content__inner"><div class="section visible">' + DATA[tabKey].sections[key].html + '</div></div>';
+  document.getElementById('content').scrollTop = 0;
+  document.querySelectorAll('.nav__toggle').forEach(el => el.classList.toggle('open', el.dataset.tab === tabKey));
+  document.querySelectorAll('.nav__sub').forEach(el => el.classList.toggle('open', el.dataset.tab === tabKey));
+  document.querySelectorAll('.sidebar__item').forEach(el => {
+    el.classList.toggle('active', el.dataset.tab === tabKey && el.dataset.section === key);
+  });
+  closeSidebar();
+}
+
+function go(tab, section) { showSection(tab, section); }
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeSidebar();
+  const sections = Object.keys(DATA[currentTab].sections);
+  const ci = sections.indexOf(currentSection);
+  if (e.key === 'ArrowDown' && ci < sections.length - 1) { e.preventDefault(); showSection(currentTab, sections[ci + 1]); }
+  if (e.key === 'ArrowUp' && ci > 0) { e.preventDefault(); showSection(currentTab, sections[ci - 1]); }
+});
+
+buildNav();
+showSection('visao', 'resumo');
+</script>
 </body>
 </html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Relatório Profissional - Eduardo Gasparetto</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg-page:#F4F7FB;
+  --bg-card:#FFFFFF;
+  --bg-card-inner:#F4F7FB;
+  --text-heading:#313642;
+  --text-body:#5C6167;
+  --text-body-strong:#313642;
+  --text-meta:#979BA1;
+  --accent:#1076DD;
+  --accent-hover:#FFFFFF;
+  --accent-active:#0A5BB5;
+  --link:#1076DD;
+  --link-hover:#313642;
+  --divider:#BDC0C6;
+  --input-border:#BDC0C6;
+  --input-focus:#1076DD;
+  --gray-10:#EFF1F4;
+  --gray-20:#BDC0C6;
+  --gray-60:#5C6167;
+  --green:#00CD4B;
+  --orange:#FF7A27;
+  --pink:#C3355D;
+  --lime:#CDFF07;
+  --sky:#31B3F9;
+  --shadow:0 10px 30px rgba(0,0,0,.05);
+  --radius:16px;
+  --radius-sm:6px;
+  --radius-full:32px;
+  --radius-pill:100px;
+  --ease:cubic-bezier(.19,1,.22,1);
+  --font:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",arial,sans-serif;
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);background:var(--bg-page);color:var(--text-body);line-height:1.6}
+.topbar{background:var(--bg-card);height:56px;display:flex;align-items:center;padding:0 24px;gap:16px;box-shadow:var(--shadow);position:sticky;top:0;z-index:1020}
+.topbar__brand{font-weight:600;font-size:14px;color:var(--text-heading);letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+.topbar__brand span{color:var(--accent);font-size:12px;font-weight:400;background:rgba(16,118,221,.08);padding:2px 8px;border-radius:var(--radius-pill)}
+.topbar__nav{display:flex;gap:0;margin-left:auto;overflow-x:auto}
+.topbar__link{font-family:var(--font);font-size:14px;color:var(--text-meta);background:none;border:none;padding:16px 16px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:color .15s}
+.topbar__link:hover{color:var(--text-heading)}
+.wrap{max-width:860px;margin:0 auto;padding:48px 24px 96px}
+section{margin-bottom:64px}
+h1{font-size:clamp(32px,4vw,42px);font-weight:600;color:var(--text-heading);letter-spacing:-.025em;line-height:1.1;margin-bottom:16px}
+h2{font-size:clamp(24px,3vw,30px);font-weight:600;color:var(--text-heading);letter-spacing:-.02em;line-height:1.2;margin-bottom:16px}
+h3{font-size:22px;font-weight:600;color:var(--text-heading);letter-spacing:-.01em;line-height:1.3;margin-top:32px;margin-bottom:8px}
+h4{font-size:18px;font-weight:600;color:var(--text-heading);line-height:1.3;margin-bottom:8px}
+p{margin-bottom:16px;font-size:16px;line-height:1.5}
+.lead{font-size:18px;color:var(--text-body);line-height:1.5;margin-bottom:24px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-meta);margin-bottom:8px}
+strong{font-weight:600;color:var(--text-body-strong)}
+em{font-style:normal;font-weight:600;color:var(--text-body-strong)}
+.card{background:var(--bg-card);border-radius:var(--radius);padding:40px 32px;margin-bottom:24px;box-shadow:var(--shadow)}
+.card--accent{border-left:3px solid var(--accent);padding-left:29px}
+.card--green{border-left:3px solid var(--green);padding-left:29px}
+.table-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(49,54,66,.1);margin-bottom:24px}
+.table-wrap table{margin-bottom:0}
+table{width:100%;border-collapse:collapse;margin-bottom:24px;font-size:16px}
+thead{background:rgba(49,54,66,.07)}
+th{text-align:left;padding:14px 20px;font-weight:600;color:var(--gray-60)}
+td{padding:14px 20px;border-bottom:1px solid rgba(49,54,66,.06);color:var(--text-heading)}
+tbody tr:nth-child(even){background:rgba(49,54,66,.03)}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(16,118,221,.04)}
+.badge{display:inline-block;font-size:12px;font-weight:600;padding:2px 10px;border-radius:var(--radius-full);white-space:nowrap}
+.badge--blue{background:rgba(16,118,221,.1);color:var(--accent)}
+.badge--green{background:rgba(0,205,75,.1);color:#00974a}
+.badge--orange{background:rgba(255,122,39,.1);color:#cc5500}
+.badge--gray{background:var(--gray-10);color:var(--gray-60)}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;text-align:center}
+.kpi__value{font-size:30px;font-weight:600;color:var(--accent)}
+.kpi__label{font-size:12px;color:var(--text-meta)}
+.meter{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.meter__label{font-size:14px;color:var(--text-body);width:170px;flex-shrink:0}
+.meter__bar{flex:1;height:8px;background:var(--gray-10);border-radius:var(--radius-pill);overflow:hidden}
+.meter__fill{height:100%;border-radius:var(--radius-pill)}
+.meter__value{font-size:14px;font-weight:600;color:var(--text-heading);width:40px;text-align:right;flex-shrink:0}
+ul,ol{margin-bottom:16px;padding-left:24px}
+li{margin-bottom:8px;font-size:16px}
+li::marker{color:var(--accent)}
+blockquote{background:var(--bg-card-inner);border-left:3px solid var(--accent);padding:16px 24px;margin:0 0 24px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-size:16px;color:var(--text-body)}
+hr{border:none;height:1px;background:var(--gray-10);margin:32px 0}
+a{color:var(--link);text-decoration:none}
+a:hover{color:var(--link-hover);text-decoration:underline}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+@media(max-width:768px){.grid-2{grid-template-columns:1fr}.topbar__nav{display:none}h3{font-size:20px}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__brand">Relatório Profissional <span>08/abr/2026</span></div>
+  <nav class="topbar__nav">
+    <a class="topbar__link" href="#resumo">Resumo</a>
+    <a class="topbar__link" href="#quem">Quem fez</a>
+    <a class="topbar__link" href="#decisoes">Decisões</a>
+    <a class="topbar__link" href="#projetos">Projetos</a>
+    <a class="topbar__link" href="#destaque">Destaques</a>
+    <a class="topbar__link" href="#setup">Setup</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+<!-- RESUMO EXECUTIVO -->
+<section id="resumo">
+  <div class="eyebrow">08/04/2026 - Período: 18/mar - 08/abr (21 dias)</div>
+  <h1>Resumo Executivo</h1>
+  <p class="lead">Este relatório documenta 21 dias de operação no workspace do Cursor de Eduardo Gasparetto para o Ecommerce na Prática (EnP).</p>
+  <p>Os projetos seguem uma lógica de retroalimentação: o Design System ensina a IA a criar interfaces; as interfaces geram padrões que voltam pro Design System; os projetos testam as regras e as regras melhoram os projetos seguintes.</p>
+  <div class="card">
+    <div class="kpi-grid">
+      <div><div class="kpi__value">252</div><div class="kpi__label">Commits totais</div></div>
+      <div><div class="kpi__value">14</div><div class="kpi__label">Projetos ativos</div></div>
+      <div><div class="kpi__value">4</div><div class="kpi__label">Apps em produção</div></div>
+      <div><div class="kpi__value">5</div><div class="kpi__label">Skills criadas</div></div>
+      <div><div class="kpi__value">3</div><div class="kpi__label">Provedores de IA</div></div>
+      <div><div class="kpi__value">21</div><div class="kpi__label">Dias de operação</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM FEZ -->
+<section id="quem">
+  <div class="eyebrow">Quem fez</div>
+  <h1>O profissional</h1>
+  <p class="lead"><strong>Eduardo Gasparetto</strong> - designer no Ecommerce na Prática (EnP / Nuvemshop).</p>
+  <p>O que o workspace revela é um escopo que vai além do título. Em 21 dias, a mesma pessoa projetou interfaces, escreveu código frontend e backend, arquitetou sistemas com IA, criou infraestrutura de skills, fez deploy e manutenção, produziu inteligência de mercado e dirigiu conteúdo de conversão.</p>
+
+  <h3>Competências demonstradas</h3>
+  <div class="table-wrap">
+  <table><thead><tr><th>Competência</th><th>Evidência</th></tr></thead><tbody>
+    <tr><td><strong>Frontend avançado</strong></td><td>3 apps Next.js em produção + LPs com CSS inline, SVG animado</td></tr>
+    <tr><td><strong>Design System thinking</strong></td><td>DS versionado (v3) com 3 modos, regras negativas, pipeline skill &rarr; guia &rarr; page builder</td></tr>
+    <tr><td><strong>Integração com IA</strong></td><td>Cadeia multi-modelo, skills que ensinam a IA, gestão de prompts</td></tr>
+    <tr><td><strong>Velocidade</strong></td><td>Data Intel: 100 commits, zero a produção com 33+ features em 11 dias</td></tr>
+    <tr><td><strong>Pensamento sistêmico</strong></td><td>Cria infraestrutura que multiplica entregas futuras</td></tr>
+    <tr><td><strong>Visão de produto</strong></td><td>Cada projeto é concebido como ferramenta escalável</td></tr>
+    <tr><td><strong>Autonomia</strong></td><td>14 projetos ativos sem dependências externas</td></tr>
+    <tr><td><strong>UX e conversão</strong></td><td>LPs com social proof, A/B nativo, UTM tracking</td></tr>
+  </tbody></table>
+  </div>
+
+  <h3>Stack de competências</h3>
+  <div class="meter"><span class="meter__label">Autonomia</span><div class="meter__bar"><div class="meter__fill" style="width:95%;background:var(--green)"></div></div><span class="meter__value">9.5</span></div>
+  <div class="meter"><span class="meter__label">Integração IA</span><div class="meter__bar"><div class="meter__fill" style="width:90%;background:var(--green)"></div></div><span class="meter__value">9.0</span></div>
+  <div class="meter"><span class="meter__label">Design System</span><div class="meter__bar"><div class="meter__fill" style="width:90%;background:var(--green)"></div></div><span class="meter__value">9.0</span></div>
+  <div class="meter"><span class="meter__label">Velocidade</span><div class="meter__bar"><div class="meter__fill" style="width:90%;background:var(--green)"></div></div><span class="meter__value">9.0</span></div>
+  <div class="meter"><span class="meter__label">Frontend</span><div class="meter__bar"><div class="meter__fill" style="width:85%;background:var(--accent)"></div></div><span class="meter__value">8.5</span></div>
+  <div class="meter"><span class="meter__label">Visão de Produto</span><div class="meter__bar"><div class="meter__fill" style="width:85%;background:var(--accent)"></div></div><span class="meter__value">8.5</span></div>
+  <div class="meter"><span class="meter__label">UX / Conversão</span><div class="meter__bar"><div class="meter__fill" style="width:80%;background:var(--accent)"></div></div><span class="meter__value">8.0</span></div>
+  <div class="meter"><span class="meter__label">Backend / Infra</span><div class="meter__bar"><div class="meter__fill" style="width:65%;background:var(--orange)"></div></div><span class="meter__value">6.5</span></div>
+  <div class="meter"><span class="meter__label">Documentação</span><div class="meter__bar"><div class="meter__fill" style="width:65%;background:var(--orange)"></div></div><span class="meter__value">6.5</span></div>
+  <div class="meter"><span class="meter__label">Organização</span><div class="meter__bar"><div class="meter__fill" style="width:60%;background:var(--orange)"></div></div><span class="meter__value">6.0</span></div>
+</section>
+
+<!-- DECISÕES ESTRATÉGICAS -->
+<section id="decisoes">
+  <div class="eyebrow">Arquitetura e estratégia</div>
+  <h1>Decisões</h1>
+
+  <div class="grid-2">
+    <div class="card card--accent"><h4>Design System com 3 modos</h4><p style="margin:0">Institucional Claro (site), Escuro Institucional (ferramentas) e Serviços (consultoria). Cada modo tem regras negativas que previnem inconsistência.</p></div>
+    <div class="card card--accent"><h4>App Guidelines encadeadas</h4><p style="margin:0">Derivadas do Nimbus (Nuvemshop), adaptadas ao EnP. O DS define como parece, as Guidelines definem como se organiza.</p></div>
+    <div class="card card--accent"><h4>IA multi-modelo</h4><p style="margin:0">Gemini (primário) &rarr; Groq (fallback) &rarr; Claude (reserva). Quando um cai, o próximo assume sem que o usuário perceba.</p></div>
+    <div class="card card--accent"><h4>Skills como infraestrutura</h4><p style="margin:0">Conhecimento codificado em .md que a IA lê e aplica - não PDFs que alguém precisa consultar. Versionado, com migration guide.</p></div>
+    <div class="card card--accent"><h4>Magic-link auth</h4><p style="margin:0">Sem senha pro público interno. Email &rarr; link &rarr; acesso. Contextos diferentes pedem soluções diferentes.</p></div>
+    <div class="card card--accent"><h4>Vercel pra apps, FTP pra LPs</h4><p style="margin:0">Apps dinâmicos no Vercel (SSR, crons, APIs). LPs estáticas via FTP. Router A/B em PHP puro.</p></div>
+  </div>
+  <blockquote>Infraestrutura antes de produto. Antes de criar LPs, criou um Design System. Antes de criar ferramentas, criou App Guidelines. Antes de escalar, criou a fábrica.</blockquote>
+</section>
+
+<!-- MAPA DE PROJETOS -->
+<section id="projetos">
+  <div class="eyebrow">Inventário</div>
+  <h1>Mapa de Projetos</h1>
+  <div class="table-wrap">
+  <table><thead><tr><th>Projeto</th><th>Tipo</th><th>Commits</th><th>Status</th></tr></thead><tbody>
+    <tr><td><strong>enp-data-intel</strong></td><td>App IA</td><td>100</td><td><span class="badge badge--green">Produção ativa</span></td></tr>
+    <tr><td><strong>enp-img (monorepo)</strong></td><td>App IA</td><td>69</td><td><span class="badge badge--green">Produção</span></td></tr>
+    <tr><td><strong>Criação EnP</strong></td><td>Plataforma</td><td>18</td><td><span class="badge badge--green">Produção ativa</span></td></tr>
+    <tr><td><strong>enp-marca</strong></td><td>Guia marca</td><td>26</td><td><span class="badge badge--green">Produção</span></td></tr>
+    <tr><td><strong>enp-design-system</strong></td><td>Skill</td><td>12</td><td><span class="badge badge--blue">v3.0.0</span></td></tr>
+    <tr><td><strong>enp-análise-consultoria</strong></td><td>Relatório</td><td>9</td><td><span class="badge badge--green">Produção</span></td></tr>
+    <tr><td><strong>enp-app-guidelines</strong></td><td>Skill</td><td>5</td><td><span class="badge badge--blue">v1.2.0</span></td></tr>
+    <tr><td><strong>appzero</strong></td><td>Spec</td><td>5</td><td><span class="badge badge--gray">Especificação</span></td></tr>
+    <tr><td><strong>enp-page-builder</strong></td><td>Page builder</td><td>2</td><td><span class="badge badge--gray">Protótipo</span></td></tr>
+    <tr><td><strong>consultoria LP</strong></td><td>Landing page</td><td>-</td><td><span class="badge badge--orange">Staging</span></td></tr>
+    <tr><td><strong>enp26 LP</strong></td><td>Landing page</td><td>-</td><td><span class="badge badge--green">Produção</span></td></tr>
+    <tr><td><strong>enp-perpetuo</strong></td><td>Router A/B</td><td>-</td><td><span class="badge badge--green">Produção</span></td></tr>
+    <tr><td><strong>enp-wireframes</strong></td><td>Catálogo</td><td>-</td><td><span class="badge badge--orange">Pausado</span></td></tr>
+  </tbody></table>
+  </div>
+</section>
+
+<!-- PROJETOS DESTAQUE -->
+<section id="destaque">
+  <div class="eyebrow">Em detalhe</div>
+  <h1>Projetos Destaque</h1>
+
+  <div class="card">
+    <h3>Design System v3.0.0 <span class="badge badge--blue">12 commits</span></h3>
+    <p>Fundação visual de todo o ecossistema. Especificação completa codificada como skill instalável: tipografia, cores (3 modos cromáticos), spacing, radius, z-index, layout, ícones, logo, gradientes, tabelas, superfícies. Regras negativas por modo. Bootstrap CSS. Checklist pós-build com 14 verificações.</p>
+    <p><strong>Evolução:</strong> v2.0 &rarr; v2.1 (ritmo vertical) &rarr; v2.3 (logo, wireframes) &rarr; v2.4 (inicialização, regras negativas) &rarr; v3.0.0 (split core + 5 arquivos) &rarr; v3.1.0 (alwaysApply)</p>
+    <p style="margin:0">Disponível em <a href="https://marca.ecommercenapratica.com" target="_blank" rel="noopener noreferrer">marca.ecommercenapratica.com</a></p>
+  </div>
+
+  <div class="card">
+    <h3>Data Intel <span class="badge badge--green">100 commits - 11 dias</span></h3>
+    <p>Plataforma de inteligência de dados que conecta fontes (GA4, Clarity), cruza visão macro com micro e entrega análises via IA. Coleta automaticamente, identifica anomalias, gera briefings com indicadores semânticos e permite conversar via chat.</p>
+    <p style="margin:0"><strong>Stack:</strong> Next.js 15, React 19, Drizzle ORM, PostgreSQL (Neon), Gemini + Groq + Claude, Chart.js, Vercel Crons.</p>
+  </div>
+
+  <div class="card">
+    <h3>Criação EnP <span class="badge badge--green">69 + 18 commits</span></h3>
+    <p>Hub centralizado de criação de ativos visuais com IA. Briefing &rarr; IA entende contexto &rarr; gera no padrão EnP &rarr; pronto. Pivotou entre 4 provedores de IA até achar o melhor (Imagen 4). Login, admin, onboarding, splash animado. Evoluiu de gerador de thumbnails para plataforma multi-produto.</p>
+  </div>
+
+  <div class="card">
+    <h3>Integração Slack + Cursor <span class="badge badge--blue">PoC</span></h3>
+    <p>Página criada inteiramente pelo chat do Slack. Alguém escreveu uma mensagem &rarr; agente do Cursor baixou a skill do DS &rarr; aplicou identidade visual &rarr; publicou no GitHub Pages. Ninguém abriu um editor.</p>
+    <p style="margin:0"><strong>Demo:</strong> <a href="https://eduardogasparetto-cpu.github.io/slack-cursor-git/" target="_blank" rel="noopener noreferrer">eduardogasparetto-cpu.github.io/slack-cursor-git &rarr;</a></p>
+  </div>
+
+  <div class="card">
+    <h3>AutoLog <span class="badge badge--gray">Spec pronta</span></h3>
+    <p>Skill de autodocumentação que analisa padrões de trabalho, registra decisões e propõe melhorias no workflow. Resolve o gap de organização e documentação com automação: documenta automaticamente e pede confirmação.</p>
+  </div>
+</section>
+
+<!-- SETUP -->
+<section id="setup">
+  <div class="eyebrow">Ambiente de trabalho</div>
+  <h1>Setup</h1>
+
+  <h3>Software Stack</h3>
+  <div class="table-wrap">
+  <table><thead><tr><th>Ferramenta</th><th>Papel</th></tr></thead><tbody>
+    <tr><td><strong>Cursor</strong></td><td>Editor principal + agentes IA</td></tr>
+    <tr><td><strong>Claude Code</strong></td><td>Agente de background pra tasks longas</td></tr>
+    <tr><td><strong>Git + GitHub</strong></td><td>Versionamento e CI/CD</td></tr>
+    <tr><td><strong>Figma (nativo + MCP)</strong></td><td>Design + conexão direta com Cursor</td></tr>
+    <tr><td><strong>Vercel</strong></td><td>Deploy automático</td></tr>
+    <tr><td><strong>Slack</strong></td><td>Comunicação + integrações de agentes</td></tr>
+  </tbody></table>
+  </div>
+
+  <h3>Recomendação de hardware</h3>
+  <p>Com base no volume de projetos, na quantidade de agentes simultâneos e nas ferramentas utilizadas neste workspace (Cursor, Claude Code, Figma MCP, Vercel, builds Next.js), a análise aponta RAM como o principal fator limitante. A recomendação abaixo considera o mínimo para operar sem fricção e o ideal para escalar com agentes paralelos e contextos maiores.</p>
+  <div class="table-wrap">
+  <table><thead><tr><th></th><th>Windows</th><th>macOS</th></tr></thead><tbody>
+    <tr><td><strong>Mínimo</strong></td><td>i7, 32 GB, NVMe 512 GB</td><td>MacBook Pro M4, 24 GB</td></tr>
+    <tr><td><strong>Ideal</strong></td><td>i9, 64 GB, RTX 4060, NVMe 1 TB</td><td>MacBook Pro M4 Pro, 36 GB</td></tr>
+  </tbody></table>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
